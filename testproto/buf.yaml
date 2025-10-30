@@ -1,0 +1,14 @@
+version: v2
+
+lint:
+  use:
+    - STANDARD
+  except:
+    - PACKAGE_VERSION_SUFFIX
+  ignore:
+    - tests/test.proto
+breaking:
+  use:
+    - FILE
+deps:
+ - buf.build/protocolbuffers/wellknowntypes
