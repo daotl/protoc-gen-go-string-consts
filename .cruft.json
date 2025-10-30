@@ -1,0 +1,26 @@
+{
+  "template": "https://github.com/daotl/go-template",
+  "commit": "a1b793545c7c39e0a6f6881cfccf378c94975d61",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "protoc-gen-go-string-consts",
+      "project_description": "Protobuf plugin that generates go string constants from enums.",
+      "go_module_path": "github.com/daotl/protoc-gen-go-string-consts",
+      "license_owner": "DAOT Labs",
+      "base_branch": "main",
+      "contact_email": "hitnexup@gmail.com",
+      "github_specific_features": "y",
+      "private_project": "n",
+      "use_codecov": "y",
+      "use_lefthook": "y",
+      "use_precommit": "y",
+      "go_version": "1.24",
+      "go_toolchain_version": "1.25",
+      "license": "MIT",
+      "_template": "https://github.com/daotl/go-template",
+      "_commit": "a1b793545c7c39e0a6f6881cfccf378c94975d61"
+    }
+  },
+  "directory": null
+}
