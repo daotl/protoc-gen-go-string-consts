@@ -1,0 +1,20 @@
+package tests;
+
+import "options/go_string_consts.proto";
+option go_package = "github.com/daotl/protoc-gen-go-string-consts/tests";
+
+enum FOO {
+  option (protoc_plugins.generate_go_string_consts) = true;
+
+  FOO_A = 0;
+  FOO_B = 1;
+}
+
+enum BAR {
+  option (protoc_plugins.generate_go_string_consts) = true;
+  option (protoc_plugins.generate_go_string_consts_strip_name_prefix) = true;
+  option (protoc_plugins.generate_go_string_consts_strip_value_prefix) = false;
+
+  BAR_A = 0;
+  BAR_B = 1;
+}

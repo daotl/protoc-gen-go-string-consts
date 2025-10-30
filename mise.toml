@@ -3,6 +3,9 @@ lefthook = "latest"
 pre-commit = "latest"
 go = "1.25"
 golangci-lint = "latest"
+buf = "1.59.0"
+protoc = "33.0"
+protoc-gen-go = "1.36.10"
 
 [hooks]
 postinstall = "lefthook install"

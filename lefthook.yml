@@ -8,5 +8,5 @@ pre-commit:
       stage_fixed: true
     lint:
       glob: "*.go"
-      run: golangci-lint run --fix {staged_files}
+      run: golangci-lint run --fix $(../scripts/unique-dirs-relative-to.sh . {staged_files})
       stage_fixed: true

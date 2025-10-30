@@ -1,0 +1,15 @@
+version: v2
+modules:
+  - path: .
+lint:
+  use:
+    - STANDARD
+  except:
+    - PACKAGE_VERSION_SUFFIX
+  ignore:
+    - tests/test.proto
+breaking:
+  use:
+    - FILE
+deps:
+ - buf.build/protocolbuffers/wellknowntypes
