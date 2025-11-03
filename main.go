@@ -112,6 +112,32 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			}
 		}
 
+		namePrefix := ""
+		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsNamePrefix) {
+			if np, ok := proto.GetExtension(opts,
+				pbgen.E_GenerateGoStringConstsNamePrefix).(string); !ok {
+				log.Fatalf(
+					"invalid type for generate_go_string_consts_name_prefix option on enum %s",
+					enum.Desc.FullName(),
+				)
+			} else {
+				namePrefix = np
+			}
+		}
+
+		nameSuffix := ""
+		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsNameSuffix) {
+			if ns, ok := proto.GetExtension(opts,
+				pbgen.E_GenerateGoStringConstsNameSuffix).(string); !ok {
+				log.Fatalf(
+					"invalid type for generate_go_string_consts_name_suffix option on enum %s",
+					enum.Desc.FullName(),
+				)
+			} else {
+				nameSuffix = ns
+			}
+		}
+
 		// Generate constants
 		prefix := string(enum.Desc.Name()) + "_"
 		for _, val := range enum.Values {
@@ -119,6 +145,7 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			value := name
 			if stripNamePrefix {
 				name, _ = strings.CutPrefix(name, prefix) // "A"
+				name = namePrefix + name + nameSuffix     // "{PREFIX}A{SUFFIX}"
 			}
 			if stripValuePrefix {
 				value, _ = strings.CutPrefix(value, prefix) // "A"

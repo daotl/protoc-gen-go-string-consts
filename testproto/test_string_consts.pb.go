@@ -10,5 +10,5 @@ package testproto
 const FOO_A = "A"
 const FOO_B = "B"
 
-const A = "BAR_A"
-const B = "BAR_B"
+const PrefixASuffix = "BAR_A"
+const PrefixBSuffix = "BAR_B"
