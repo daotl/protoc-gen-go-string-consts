@@ -14,6 +14,8 @@ enum BAR {
   option (daotl.proto.generate_go_string_consts) = true;
   option (daotl.proto.generate_go_string_consts_strip_name_prefix) = true;
   option (daotl.proto.generate_go_string_consts_strip_value_prefix) = false;
+  option (daotl.proto.generate_go_string_consts_name_prefix) = "Prefix";
+  option (daotl.proto.generate_go_string_consts_name_suffix) = "Suffix";
 
   BAR_A = 0;
   BAR_B = 1;

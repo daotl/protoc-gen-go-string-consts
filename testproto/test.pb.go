@@ -142,10 +142,10 @@ const file_test_proto_rawDesc = "" +
 	"test.proto\x12\x05tests\x1a+daotl/protoc-gen-go-string-consts/ext.proto*!\n" +
 	"\x03FOO\x12\t\n" +
 	"\x05FOO_A\x10\x00\x12\t\n" +
-	"\x05FOO_B\x10\x01\x1a\x04\xa0\xe3,\x01*)\n" +
+	"\x05FOO_B\x10\x01\x1a\x04\xa0\xe3,\x01*=\n" +
 	"\x03BAR\x12\t\n" +
 	"\x05BAR_A\x10\x00\x12\t\n" +
-	"\x05BAR_B\x10\x01\x1a\f\xa0\xe3,\x01\xa8\xe3,\x01\xb0\xe3,\x00B8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
+	"\x05BAR_B\x10\x01\x1a \xa0\xe3,\x01\xa8\xe3,\x01\xb0\xe3,\x00\xba\xe3,\x06Prefix\xc2\xe3,\x06SuffixB8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
 
 var (
 	file_test_proto_rawDescOnce sync.Once

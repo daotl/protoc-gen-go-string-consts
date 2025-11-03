@@ -7,8 +7,12 @@ package testproto
 
 // Generated string constants for enums
 
-const FOO_A = "A"
-const FOO_B = "B"
+const (
+	FOO_A = "A"
+	FOO_B = "B"
+)
 
-const A = "BAR_A"
-const B = "BAR_B"
+const (
+	A = "BAR_A"
+	B = "BAR_B"
+)
