@@ -62,6 +62,22 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Tag:           "bytes,91704,opt,name=generate_go_string_consts_name_suffix",
 		Filename:      "ext.proto",
 	},
+	{
+		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
+		ExtensionType: (*string)(nil),
+		Field:         91705,
+		Name:          "daotl.proto.generate_go_string_consts_value_prefix",
+		Tag:           "bytes,91705,opt,name=generate_go_string_consts_value_prefix",
+		Filename:      "ext.proto",
+	},
+	{
+		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
+		ExtensionType: (*string)(nil),
+		Field:         91706,
+		Name:          "daotl.proto.generate_go_string_consts_value_suffix",
+		Tag:           "bytes,91706,opt,name=generate_go_string_consts_value_suffix",
+		Filename:      "ext.proto",
+	},
 }
 
 // Extension fields to descriptorpb.EnumOptions.
@@ -86,6 +102,14 @@ var (
 	//
 	// optional string generate_go_string_consts_name_suffix = 91704;
 	E_GenerateGoStringConstsNameSuffix = &file_ext_proto_extTypes[4]
+	// Add string prefix to generated Go string constant values.
+	//
+	// optional string generate_go_string_consts_value_prefix = 91705;
+	E_GenerateGoStringConstsValuePrefix = &file_ext_proto_extTypes[5]
+	// Add string suffix to generated Go string constant values.
+	//
+	// optional string generate_go_string_consts_value_suffix = 91706;
+	E_GenerateGoStringConstsValueSuffix = &file_ext_proto_extTypes[6]
 )
 
 var File_ext_proto protoreflect.FileDescriptor
@@ -97,7 +121,9 @@ const file_ext_proto_rawDesc = "" +
 	"+generate_go_string_consts_strip_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb5\xcc\x05 \x01(\bR%generateGoStringConstsStripNamePrefix:|\n" +
 	",generate_go_string_consts_strip_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb6\xcc\x05 \x01(\bR&generateGoStringConstsStripValuePrefix:o\n" +
 	"%generate_go_string_consts_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb7\xcc\x05 \x01(\tR generateGoStringConstsNamePrefix:o\n" +
-	"%generate_go_string_consts_name_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xb8\xcc\x05 \x01(\tR generateGoStringConstsNameSuffixB\x9c\x01\n" +
+	"%generate_go_string_consts_name_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xb8\xcc\x05 \x01(\tR generateGoStringConstsNameSuffix:q\n" +
+	"&generate_go_string_consts_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb9\xcc\x05 \x01(\tR!generateGoStringConstsValuePrefix:q\n" +
+	"&generate_go_string_consts_value_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xba\xcc\x05 \x01(\tR!generateGoStringConstsValueSuffixB\x9c\x01\n" +
 	"\x0fcom.daotl.protoB\bExtProtoP\x01Z2github.com/daotl/protoc-gen-go-string-consts/pbgen\xa2\x02\x03DPX\xaa\x02\vDaotl.Proto\xca\x02\vDaotl\\Proto\xe2\x02\x17Daotl\\Proto\\GPBMetadata\xea\x02\fDaotl::Protob\x06proto3"
 
 var file_ext_proto_goTypes = []any{
@@ -109,10 +135,12 @@ var file_ext_proto_depIdxs = []int32{
 	0, // 2: daotl.proto.generate_go_string_consts_strip_value_prefix:extendee -> google.protobuf.EnumOptions
 	0, // 3: daotl.proto.generate_go_string_consts_name_prefix:extendee -> google.protobuf.EnumOptions
 	0, // 4: daotl.proto.generate_go_string_consts_name_suffix:extendee -> google.protobuf.EnumOptions
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	0, // [0:5] is the sub-list for extension extendee
+	0, // 5: daotl.proto.generate_go_string_consts_value_prefix:extendee -> google.protobuf.EnumOptions
+	0, // 6: daotl.proto.generate_go_string_consts_value_suffix:extendee -> google.protobuf.EnumOptions
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	0, // [0:7] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
 }
 
@@ -128,7 +156,7 @@ func file_ext_proto_init() {
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ext_proto_rawDesc), len(file_ext_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   0,
-			NumExtensions: 5,
+			NumExtensions: 7,
 			NumServices:   0,
 		},
 		GoTypes:           file_ext_proto_goTypes,

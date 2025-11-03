@@ -7,8 +7,8 @@ package testproto
 
 // Generated string constants for enums
 
-const FOO_A = "A"
-const FOO_B = "B"
+const FOO_A = "PrefixASuffix"
+const FOO_B = "PrefixBSuffix"
 
 const PrefixASuffix = "BAR_A"
 const PrefixBSuffix = "BAR_B"

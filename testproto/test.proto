@@ -5,6 +5,8 @@ option go_package = "github.com/daotl/protoc-gen-go-string-consts/testproto";
 
 enum FOO {
   option (daotl.proto.generate_go_string_consts) = true;
+  option (daotl.proto.generate_go_string_consts_value_prefix) = "Prefix";
+  option (daotl.proto.generate_go_string_consts_value_suffix) = "Suffix";
 
   FOO_A = 0;
   FOO_B = 1;

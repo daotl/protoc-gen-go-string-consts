@@ -16,6 +16,10 @@ extend google.protobuf.EnumOptions {
   string generate_go_string_consts_name_prefix = 91703;
   // Add string suffix to generated Go string constant names.
   string generate_go_string_consts_name_suffix = 91704;
+  // Add string prefix to generated Go string constant values.
+  string generate_go_string_consts_value_prefix = 91705;
+  // Add string suffix to generated Go string constant values.
+  string generate_go_string_consts_value_suffix = 91706;
 }
 ```
 
@@ -28,6 +32,8 @@ option go_package = "github.com/daotl/protoc-gen-go-string-consts/testproto";
 
 enum FOO {
   option (daotl.proto.generate_go_string_consts) = true;
+  option (daotl.proto.generate_go_string_consts_value_prefix) = "Prefix";
+  option (daotl.proto.generate_go_string_consts_value_suffix) = "Suffix";
 
   FOO_A = 0;
   FOO_B = 1;
@@ -43,14 +49,13 @@ enum BAR {
   BAR_A = 0;
   BAR_B = 1;
 }
-.
 ```
 
 Generated Go code:
 ```go
-const FOO_A = "A"
-const FOO_B = "B"
+const FOO_A = "PrefixASuffix"
+const FOO_B = "PrefixBSuffix"
 
-const A = "PreifxBAR_ASuffix"
-const B = "PrefixBAR_BSuffix"
+const PreifxASuffix = "BAR_A"
+const PrefixBSuffix = "BAR_B"
 ```

@@ -16,4 +16,8 @@ extend google.protobuf.EnumOptions {
   string generate_go_string_consts_name_prefix = 91703;
   // Add string suffix to generated Go string constant names.
   string generate_go_string_consts_name_suffix = 91704;
+  // Add string prefix to generated Go string constant values.
+  string generate_go_string_consts_value_prefix = 91705;
+  // Add string suffix to generated Go string constant values.
+  string generate_go_string_consts_value_suffix = 91706;
 }
