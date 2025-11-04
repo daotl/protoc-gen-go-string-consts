@@ -4,6 +4,8 @@ import (
 	"log"
 	"strconv"
 	"strings"
+	"unicode"
+	"unicode/utf8"
 
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -127,6 +129,20 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			}
 		}
 
+		nameCapsCase := false
+		if !namePascalCase && proto.HasExtension(opts,
+			pbgen.E_GenGoStringConstsNameCapsCase) {
+			if ncc, ok := proto.GetExtension(opts,
+				pbgen.E_GenGoStringConstsNameCapsCase).(bool); !ok {
+				log.Fatalf(
+					"invalid type for gen_go_string_consts_name_pascal_case option on enum %s",
+					enum.Desc.FullName(),
+				)
+			} else {
+				nameCapsCase = ncc
+			}
+		}
+
 		namePrefix := ""
 		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsNamePrefix) {
 			if np, ok := proto.GetExtension(opts,
@@ -187,31 +203,82 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 
 			name, _ = strings.CutPrefix(name, stripNamePrefix) // "A"
 			if namePascalCase {
-				name = snakeToPascalCase(name)
+				name = toPascalCase(name)
+			} else if nameCapsCase {
+				name = toCapsCase(name)
 			}
 			name = namePrefix + name + nameSuffix // "{PREFIX}A{SUFFIX}"
 
 			value, _ = strings.CutPrefix(value, stripValuePrefix) // "A"
 			value = valuePrefix + value + valueSuffix             // "{PREFIX}A{SUFFIX}"
 
+			//nolint: errcheck // Type 100% matches
+			if val.Desc.Options().(*descriptorpb.EnumValueOptions).GetDeprecated() {
+				g.P("// Deprecated: Do not use.")
+			}
 			g.P("const ", name, " = ", strconv.Quote(value))
 		}
 		g.P()
 	}
 }
 
-// snakeToPascalCase converts a snake_case string to PascalCase.
-func snakeToPascalCase(s string) string {
+// toPascalCase converts string to PascalCase.
+func toPascalCase(s string) string {
 	parts := strings.Split(s, "_")
-	titleCaser := cases.Title(language.English)
 	if len(parts) == 1 {
-		return titleCaser.String(parts[0])
+		return toPascalCasePart(parts[0])
 	}
 	result := ""
 	for i := range parts {
 		if parts[i] != "" {
-			result += titleCaser.String(parts[i])
+			result += toPascalCasePart(parts[i])
 		}
 	}
 	return result
+}
+
+func toPascalCasePart(s string) string {
+	var titleCaser cases.Caser
+	// If "ALLCAPS" convert to "Allcaps", if "camelCase" convert to "CamelCase"
+	if NoLowercaseASCII(s) {
+		titleCaser = cases.Title(language.English)
+	} else {
+		titleCaser = cases.Title(language.English, cases.NoLower)
+	}
+	return titleCaser.String(s)
+}
+
+func NoLowercaseASCII(s string) bool {
+	return !strings.ContainsAny(s, "abcdefghijklmnopqrstuvwxyz")
+}
+
+// toCapsCase converts strings like "camelCase_PascalCase_CAPS" to "CAMEL_CASE_PASCAL_CASE_CAPS".
+func toCapsCase(s string) string {
+	// First, split by underscores
+	parts := strings.Split(s, "_")
+	result := make([]string, 0, len(parts))
+
+	for _, part := range parts {
+		if part == "" {
+			continue
+		}
+
+		// Convert each part to uppercase
+		// Handle camelCase by inserting underscores before uppercase letters
+		var capsPart strings.Builder
+		for i, r := range part {
+			// Only insert underscore before uppercase letter if the previous character was lowercase
+			// This prevents adding underscores between consecutive uppercase letters
+			if i > 0 && unicode.IsUpper(r) && i < len(part) {
+				prevRune, _ := utf8.DecodeRuneInString(part[i-1:])
+				if unicode.IsLower(prevRune) {
+					capsPart.WriteRune('_')
+				}
+			}
+			capsPart.WriteRune(unicode.ToUpper(r))
+		}
+		result = append(result, capsPart.String())
+	}
+
+	return strings.Join(result, "_")
 }

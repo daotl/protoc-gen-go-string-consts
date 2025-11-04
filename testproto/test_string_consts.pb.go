@@ -5,7 +5,7 @@
 
 package testproto
 
-// Generated string constants for enums
+/* Generated string constants for enums */
 
 // String constants for enum tests.FOO
 const FOO_A = "PrefixASuffix"

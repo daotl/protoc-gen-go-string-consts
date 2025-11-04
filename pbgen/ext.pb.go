@@ -48,42 +48,50 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
-		ExtensionType: (*string)(nil),
+		ExtensionType: (*bool)(nil),
 		Field:         91703,
-		Name:          "daotl.proto.gen_go_string_consts_name_prefix",
-		Tag:           "bytes,91703,opt,name=gen_go_string_consts_name_prefix",
+		Name:          "daotl.proto.gen_go_string_consts_name_caps_case",
+		Tag:           "varint,91703,opt,name=gen_go_string_consts_name_caps_case",
 		Filename:      "ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         91704,
-		Name:          "daotl.proto.gen_go_string_consts_name_suffix",
-		Tag:           "bytes,91704,opt,name=gen_go_string_consts_name_suffix",
+		Name:          "daotl.proto.gen_go_string_consts_name_prefix",
+		Tag:           "bytes,91704,opt,name=gen_go_string_consts_name_prefix",
 		Filename:      "ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         91705,
-		Name:          "daotl.proto.gen_go_string_consts_strip_value_prefix",
-		Tag:           "bytes,91705,opt,name=gen_go_string_consts_strip_value_prefix",
+		Name:          "daotl.proto.gen_go_string_consts_name_suffix",
+		Tag:           "bytes,91705,opt,name=gen_go_string_consts_name_suffix",
 		Filename:      "ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         91706,
-		Name:          "daotl.proto.gen_go_string_consts_value_prefix",
-		Tag:           "bytes,91706,opt,name=gen_go_string_consts_value_prefix",
+		Name:          "daotl.proto.gen_go_string_consts_strip_value_prefix",
+		Tag:           "bytes,91706,opt,name=gen_go_string_consts_strip_value_prefix",
 		Filename:      "ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         91707,
+		Name:          "daotl.proto.gen_go_string_consts_value_prefix",
+		Tag:           "bytes,91707,opt,name=gen_go_string_consts_value_prefix",
+		Filename:      "ext.proto",
+	},
+	{
+		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
+		ExtensionType: (*string)(nil),
+		Field:         91708,
 		Name:          "daotl.proto.gen_go_string_consts_value_suffix",
-		Tag:           "bytes,91707,opt,name=gen_go_string_consts_value_suffix",
+		Tag:           "bytes,91708,opt,name=gen_go_string_consts_value_suffix",
 		Filename:      "ext.proto",
 	},
 }
@@ -98,31 +106,38 @@ var (
 	//
 	// optional string gen_go_string_consts_strip_name_prefix = 91701;
 	E_GenGoStringConstsStripNamePrefix = &file_ext_proto_extTypes[1]
-	// Turn string const name from snake case into pascal case (apply before `gen_go_string_consts_name_prefix` and `gen_go_string_consts_name_suffix`).
+	// If true convert string const name into PascalCase
+	// (apply before `gen_go_string_consts_name_prefix` and `gen_go_string_consts_name_suffix`).
 	//
 	// optional bool gen_go_string_consts_name_pascal_case = 91702;
 	E_GenGoStringConstsNamePascalCase = &file_ext_proto_extTypes[2]
+	// If true convert string const name into CAPS_CASE
+	// (apply before `gen_go_string_consts_name_prefix` and `gen_go_string_consts_name_suffix`).
+	// Can't be used together with gen_go_string_consts_name_pascal_case.
+	//
+	// optional bool gen_go_string_consts_name_caps_case = 91703;
+	E_GenGoStringConstsNameCapsCase = &file_ext_proto_extTypes[3]
 	// Add string prefix to generated Go string constant names.
 	//
-	// optional string gen_go_string_consts_name_prefix = 91703;
-	E_GenGoStringConstsNamePrefix = &file_ext_proto_extTypes[3]
+	// optional string gen_go_string_consts_name_prefix = 91704;
+	E_GenGoStringConstsNamePrefix = &file_ext_proto_extTypes[4]
 	// Add string suffix to generated Go string constant names.
 	//
-	// optional string gen_go_string_consts_name_suffix = 91704;
-	E_GenGoStringConstsNameSuffix = &file_ext_proto_extTypes[4]
+	// optional string gen_go_string_consts_name_suffix = 91705;
+	E_GenGoStringConstsNameSuffix = &file_ext_proto_extTypes[5]
 	// Strip the specified prefix from the generated Go string constant values, (Default: "{{enum_name}}_")
 	// By default, the string constant value is the same as the name.
 	//
-	// optional string gen_go_string_consts_strip_value_prefix = 91705;
-	E_GenGoStringConstsStripValuePrefix = &file_ext_proto_extTypes[5]
+	// optional string gen_go_string_consts_strip_value_prefix = 91706;
+	E_GenGoStringConstsStripValuePrefix = &file_ext_proto_extTypes[6]
 	// Add string prefix to generated Go string constant values.
 	//
-	// optional string gen_go_string_consts_value_prefix = 91706;
-	E_GenGoStringConstsValuePrefix = &file_ext_proto_extTypes[6]
+	// optional string gen_go_string_consts_value_prefix = 91707;
+	E_GenGoStringConstsValuePrefix = &file_ext_proto_extTypes[7]
 	// Add string suffix to generated Go string constant values.
 	//
-	// optional string gen_go_string_consts_value_suffix = 91707;
-	E_GenGoStringConstsValueSuffix = &file_ext_proto_extTypes[7]
+	// optional string gen_go_string_consts_value_suffix = 91708;
+	E_GenGoStringConstsValueSuffix = &file_ext_proto_extTypes[8]
 )
 
 var File_ext_proto protoreflect.FileDescriptor
@@ -132,12 +147,13 @@ const file_ext_proto_rawDesc = "" +
 	"\text.proto\x12\vdaotl.proto\x1a google/protobuf/descriptor.proto:O\n" +
 	"\x14gen_go_string_consts\x12\x1c.google.protobuf.EnumOptions\x18\xb4\xcc\x05 \x01(\bR\x11genGoStringConsts:p\n" +
 	"&gen_go_string_consts_strip_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb5\xcc\x05 \x01(\tR genGoStringConstsStripNamePrefix:n\n" +
-	"%gen_go_string_consts_name_pascal_case\x12\x1c.google.protobuf.EnumOptions\x18\xb6\xcc\x05 \x01(\bR\x1fgenGoStringConstsNamePascalCase:e\n" +
-	" gen_go_string_consts_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb7\xcc\x05 \x01(\tR\x1bgenGoStringConstsNamePrefix:e\n" +
-	" gen_go_string_consts_name_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xb8\xcc\x05 \x01(\tR\x1bgenGoStringConstsNameSuffix:r\n" +
-	"'gen_go_string_consts_strip_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb9\xcc\x05 \x01(\tR!genGoStringConstsStripValuePrefix:g\n" +
-	"!gen_go_string_consts_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xba\xcc\x05 \x01(\tR\x1cgenGoStringConstsValuePrefix:g\n" +
-	"!gen_go_string_consts_value_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xbb\xcc\x05 \x01(\tR\x1cgenGoStringConstsValueSuffixB\x9c\x01\n" +
+	"%gen_go_string_consts_name_pascal_case\x12\x1c.google.protobuf.EnumOptions\x18\xb6\xcc\x05 \x01(\bR\x1fgenGoStringConstsNamePascalCase:j\n" +
+	"#gen_go_string_consts_name_caps_case\x12\x1c.google.protobuf.EnumOptions\x18\xb7\xcc\x05 \x01(\bR\x1dgenGoStringConstsNameCapsCase:e\n" +
+	" gen_go_string_consts_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb8\xcc\x05 \x01(\tR\x1bgenGoStringConstsNamePrefix:e\n" +
+	" gen_go_string_consts_name_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xb9\xcc\x05 \x01(\tR\x1bgenGoStringConstsNameSuffix:r\n" +
+	"'gen_go_string_consts_strip_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xba\xcc\x05 \x01(\tR!genGoStringConstsStripValuePrefix:g\n" +
+	"!gen_go_string_consts_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xbb\xcc\x05 \x01(\tR\x1cgenGoStringConstsValuePrefix:g\n" +
+	"!gen_go_string_consts_value_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xbc\xcc\x05 \x01(\tR\x1cgenGoStringConstsValueSuffixB\x9c\x01\n" +
 	"\x0fcom.daotl.protoB\bExtProtoP\x01Z2github.com/daotl/protoc-gen-go-string-consts/pbgen\xa2\x02\x03DPX\xaa\x02\vDaotl.Proto\xca\x02\vDaotl\\Proto\xe2\x02\x17Daotl\\Proto\\GPBMetadata\xea\x02\fDaotl::Protob\x06proto3"
 
 var file_ext_proto_goTypes = []any{
@@ -147,15 +163,16 @@ var file_ext_proto_depIdxs = []int32{
 	0, // 0: daotl.proto.gen_go_string_consts:extendee -> google.protobuf.EnumOptions
 	0, // 1: daotl.proto.gen_go_string_consts_strip_name_prefix:extendee -> google.protobuf.EnumOptions
 	0, // 2: daotl.proto.gen_go_string_consts_name_pascal_case:extendee -> google.protobuf.EnumOptions
-	0, // 3: daotl.proto.gen_go_string_consts_name_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 4: daotl.proto.gen_go_string_consts_name_suffix:extendee -> google.protobuf.EnumOptions
-	0, // 5: daotl.proto.gen_go_string_consts_strip_value_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 6: daotl.proto.gen_go_string_consts_value_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 7: daotl.proto.gen_go_string_consts_value_suffix:extendee -> google.protobuf.EnumOptions
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	0, // [0:8] is the sub-list for extension extendee
+	0, // 3: daotl.proto.gen_go_string_consts_name_caps_case:extendee -> google.protobuf.EnumOptions
+	0, // 4: daotl.proto.gen_go_string_consts_name_prefix:extendee -> google.protobuf.EnumOptions
+	0, // 5: daotl.proto.gen_go_string_consts_name_suffix:extendee -> google.protobuf.EnumOptions
+	0, // 6: daotl.proto.gen_go_string_consts_strip_value_prefix:extendee -> google.protobuf.EnumOptions
+	0, // 7: daotl.proto.gen_go_string_consts_value_prefix:extendee -> google.protobuf.EnumOptions
+	0, // 8: daotl.proto.gen_go_string_consts_value_suffix:extendee -> google.protobuf.EnumOptions
+	9, // [9:9] is the sub-list for method output_type
+	9, // [9:9] is the sub-list for method input_type
+	9, // [9:9] is the sub-list for extension type_name
+	0, // [0:9] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
 }
 
@@ -171,7 +188,7 @@ func file_ext_proto_init() {
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ext_proto_rawDesc), len(file_ext_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   0,
-			NumExtensions: 8,
+			NumExtensions: 9,
 			NumServices:   0,
 		},
 		GoTypes:           file_ext_proto_goTypes,

@@ -31,6 +31,7 @@ enum OpCode {
   option (daotl.proto.gen_go_string_consts_name_pascal_case) = true;
   option (daotl.proto.gen_go_string_consts_name_prefix) = "OpCode";
   option (daotl.proto.gen_go_string_consts_value_prefix) = "OC_";
+
   OP_CODE_RESERVED = 0;
   OP_CODE_RESOLUTION = 1;
   OP_CODE_GET_SITEINFO = 2;
