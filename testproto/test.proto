@@ -1,35 +1,36 @@
 package tests;
 
 import "daotl/protoc-gen-go-string-consts/ext.proto";
+
 option go_package = "github.com/daotl/protoc-gen-go-string-consts/testproto";
 
 enum FOO {
-  option (daotl.proto.generate_go_string_consts) = true;
-  option (daotl.proto.generate_go_string_consts_value_prefix) = "Prefix";
-  option (daotl.proto.generate_go_string_consts_value_suffix) = "Suffix";
+  option (daotl.proto.gen_go_string_consts) = true;
+  option (daotl.proto.gen_go_string_consts_value_prefix) = "Prefix";
+  option (daotl.proto.gen_go_string_consts_value_suffix) = "Suffix";
 
   FOO_A = 0;
   FOO_B = 1;
 }
 
 enum BAR {
-  option (daotl.proto.generate_go_string_consts) = true;
-  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = "BAR_";
-  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = "";
-  option (daotl.proto.generate_go_string_consts_name_prefix) = "Prefix";
-  option (daotl.proto.generate_go_string_consts_name_suffix) = "Suffix";
+  option (daotl.proto.gen_go_string_consts) = true;
+  option (daotl.proto.gen_go_string_consts_strip_name_prefix) = "BAR_";
+  option (daotl.proto.gen_go_string_consts_strip_value_prefix) = "";
+  option (daotl.proto.gen_go_string_consts_name_prefix) = "Prefix";
+  option (daotl.proto.gen_go_string_consts_name_suffix) = "Suffix";
 
   BAR_A = 0;
   BAR_B = 1;
 }
 
 enum OpCode {
-  option (daotl.proto.generate_go_string_consts) = true;
-  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = "OP_CODE_";
-  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = "OP_CODE_";
-  option (daotl.proto.generate_go_string_consts_name_pascal_case) = true;
-  option (daotl.proto.generate_go_string_consts_name_prefix) = "OpCode";
-  option (daotl.proto.generate_go_string_consts_value_prefix) = "OC_";
+  option (daotl.proto.gen_go_string_consts) = true;
+  option (daotl.proto.gen_go_string_consts_strip_name_prefix) = "OP_CODE_";
+  option (daotl.proto.gen_go_string_consts_strip_value_prefix) = "OP_CODE_";
+  option (daotl.proto.gen_go_string_consts_name_pascal_case) = true;
+  option (daotl.proto.gen_go_string_consts_name_prefix) = "OpCode";
+  option (daotl.proto.gen_go_string_consts_value_prefix) = "OC_";
   OP_CODE_RESERVED = 0;
   OP_CODE_RESOLUTION = 1;
   OP_CODE_GET_SITEINFO = 2;

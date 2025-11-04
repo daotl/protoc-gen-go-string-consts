@@ -42,12 +42,12 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			continue
 		}
 
-		if !proto.HasExtension(opts, pbgen.E_GenerateGoStringConsts) {
+		if !proto.HasExtension(opts, pbgen.E_GenGoStringConsts) {
 			continue
 		}
 
-		if enabled, ok := proto.GetExtension(opts, pbgen.E_GenerateGoStringConsts).(bool); !ok {
-			log.Fatalf("invalid type for generate_go_string_consts option on enum %s", enum.Desc.FullName())
+		if enabled, ok := proto.GetExtension(opts, pbgen.E_GenGoStringConsts).(bool); !ok {
+			log.Fatalf("invalid type for gen_go_string_consts option on enum %s", enum.Desc.FullName())
 		} else if enabled {
 			someEnabled = true
 			break
@@ -80,59 +80,59 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			continue
 		}
 
-		if !proto.HasExtension(opts, pbgen.E_GenerateGoStringConsts) {
+		if !proto.HasExtension(opts, pbgen.E_GenGoStringConsts) {
 			continue
 		}
 
-		if enabled, ok := proto.GetExtension(opts, pbgen.E_GenerateGoStringConsts).(bool); !ok {
-			log.Fatalf("invalid type for generate_go_string_consts option on enum %s", enum.Desc.FullName())
+		if enabled, ok := proto.GetExtension(opts, pbgen.E_GenGoStringConsts).(bool); !ok {
+			log.Fatalf("invalid type for gen_go_string_consts option on enum %s", enum.Desc.FullName())
 		} else if !enabled {
 			continue
 		}
 
 		stripNamePrefix := ""
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsStripNamePrefix) {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsStripNamePrefix) {
 			var ok bool
 			if stripNamePrefix, ok = proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsStripNamePrefix).(string); !ok {
+				pbgen.E_GenGoStringConstsStripNamePrefix).(string); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_strip_name_prefix option on enum %s",
+					"invalid type for gen_go_string_consts_strip_name_prefix option on enum %s",
 					enum.Desc.FullName(),
 				)
 			}
 		}
 
 		stripValuePrefix := string(enum.Desc.Name()) + "_" // FOO_
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsStripValuePrefix) {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsStripValuePrefix) {
 			var ok bool
 			if stripValuePrefix, ok = proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsStripValuePrefix).(string); !ok {
+				pbgen.E_GenGoStringConstsStripValuePrefix).(string); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_strip_value_prefix option on enum %s",
+					"invalid type for gen_go_string_consts_strip_value_prefix option on enum %s",
 					enum.Desc.FullName(),
 				)
 			}
 		}
 
 		namePascalCase := false
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsNamePascalCase) {
-			if ncc, ok := proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsNamePascalCase).(bool); !ok {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsNamePascalCase) {
+			if npc, ok := proto.GetExtension(opts,
+				pbgen.E_GenGoStringConstsNamePascalCase).(bool); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_name_pascal_case option on enum %s",
+					"invalid type for gen_go_string_consts_name_pascal_case option on enum %s",
 					enum.Desc.FullName(),
 				)
 			} else {
-				namePascalCase = ncc
+				namePascalCase = npc
 			}
 		}
 
 		namePrefix := ""
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsNamePrefix) {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsNamePrefix) {
 			if np, ok := proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsNamePrefix).(string); !ok {
+				pbgen.E_GenGoStringConstsNamePrefix).(string); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_name_prefix option on enum %s",
+					"invalid type for gen_go_string_consts_name_prefix option on enum %s",
 					enum.Desc.FullName(),
 				)
 			} else {
@@ -141,11 +141,11 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 		}
 
 		nameSuffix := ""
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsNameSuffix) {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsNameSuffix) {
 			if ns, ok := proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsNameSuffix).(string); !ok {
+				pbgen.E_GenGoStringConstsNameSuffix).(string); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_name_suffix option on enum %s",
+					"invalid type for gen_go_string_consts_name_suffix option on enum %s",
 					enum.Desc.FullName(),
 				)
 			} else {
@@ -154,11 +154,11 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 		}
 
 		valuePrefix := ""
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsValuePrefix) {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsValuePrefix) {
 			if vp, ok := proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsValuePrefix).(string); !ok {
+				pbgen.E_GenGoStringConstsValuePrefix).(string); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_value_prefix option on enum %s",
+					"invalid type for gen_go_string_consts_value_prefix option on enum %s",
 					enum.Desc.FullName(),
 				)
 			} else {
@@ -167,11 +167,11 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 		}
 
 		valueSuffix := ""
-		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsValueSuffix) {
+		if proto.HasExtension(opts, pbgen.E_GenGoStringConstsValueSuffix) {
 			if vs, ok := proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsValueSuffix).(string); !ok {
+				pbgen.E_GenGoStringConstsValueSuffix).(string); !ok {
 				log.Fatalf(
-					"invalid type for generate_go_string_consts_value_suffix option on enum %s",
+					"invalid type for gen_go_string_consts_value_suffix option on enum %s",
 					enum.Desc.FullName(),
 				)
 			} else {
