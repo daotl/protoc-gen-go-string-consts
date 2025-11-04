@@ -8,10 +8,11 @@ Options:
 extend google.protobuf.EnumOptions {
   // Enable generation of Go string constants for this enum. (Default: false)
   bool generate_go_string_consts = 91700;
-  // Strip the specified prefix from the generated Go string constant names. (Default: false)
-  bool generate_go_string_consts_strip_name_prefix = 91701;
-  // Strip the specified prefix from the generated Go string constant values. (Default: true)
-  bool generate_go_string_consts_strip_value_prefix = 91702;
+  // Strip the specified prefix from the generated Go string constant names.
+  string generate_go_string_consts_strip_name_prefix = 91701;
+  // Strip the specified prefix from the generated Go string constant values, (Default: "{{enum_name}}_")
+  // By default, the string constant value is the same as the name.
+  string generate_go_string_consts_strip_value_prefix = 91702;
   // Add string prefix to generated Go string constant names.
   string generate_go_string_consts_name_prefix = 91703;
   // Add string suffix to generated Go string constant names.
@@ -41,8 +42,8 @@ enum FOO {
 
 enum BAR {
   option (daotl.proto.generate_go_string_consts) = true;
-  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = true;
-  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = false;
+  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = "BAR_";
+  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = "";
   option (daotl.proto.generate_go_string_consts_name_prefix) = "Prefix";
   option (daotl.proto.generate_go_string_consts_name_suffix) = "Suffix";
 

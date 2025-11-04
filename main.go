@@ -88,11 +88,11 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			continue
 		}
 
-		stripNamePrefix := false
+		stripNamePrefix := ""
 		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsStripNamePrefix) {
 			var ok bool
 			if stripNamePrefix, ok = proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsStripNamePrefix).(bool); !ok {
+				pbgen.E_GenerateGoStringConstsStripNamePrefix).(string); !ok {
 				log.Fatalf(
 					"invalid type for generate_go_string_consts_strip_name_prefix option on enum %s",
 					enum.Desc.FullName(),
@@ -100,11 +100,11 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			}
 		}
 
-		stripValuePrefix := true
+		stripValuePrefix := string(enum.Desc.Name()) + "_" // FOO_
 		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsStripValuePrefix) {
 			var ok bool
 			if stripValuePrefix, ok = proto.GetExtension(opts,
-				pbgen.E_GenerateGoStringConstsStripValuePrefix).(bool); !ok {
+				pbgen.E_GenerateGoStringConstsStripValuePrefix).(string); !ok {
 				log.Fatalf(
 					"invalid type for generate_go_string_consts_strip_value_prefix option on enum %s",
 					enum.Desc.FullName(),
@@ -165,18 +165,16 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 		}
 
 		// Generate constants
-		prefix := string(enum.Desc.Name()) + "_"
 		for _, val := range enum.Values {
 			name := string(val.Desc.Name()) // "FOO_A"
 			value := name
-			if stripNamePrefix {
-				name, _ = strings.CutPrefix(name, prefix) // "A"
-				name = namePrefix + name + nameSuffix     // "{PREFIX}A{SUFFIX}"
-			}
-			if stripValuePrefix {
-				value, _ = strings.CutPrefix(value, prefix) // "A"
-				value = valuePrefix + value + valueSuffix   // "{PREFIX}A{SUFFIX}"
-			}
+
+			name, _ = strings.CutPrefix(name, stripNamePrefix) // "A"
+			name = namePrefix + name + nameSuffix              // "{PREFIX}A{SUFFIX}"
+
+			value, _ = strings.CutPrefix(value, stripValuePrefix) // "A"
+			value = valuePrefix + value + valueSuffix             // "{PREFIX}A{SUFFIX}"
+
 			g.P("const ", name, " = ", strconv.Quote(value))
 		}
 		g.P()

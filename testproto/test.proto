@@ -14,11 +14,40 @@ enum FOO {
 
 enum BAR {
   option (daotl.proto.generate_go_string_consts) = true;
-  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = true;
-  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = false;
+  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = "BAR_";
+  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = "";
   option (daotl.proto.generate_go_string_consts_name_prefix) = "Prefix";
   option (daotl.proto.generate_go_string_consts_name_suffix) = "Suffix";
 
   BAR_A = 0;
   BAR_B = 1;
+}
+
+enum OpCode {
+  option (daotl.proto.generate_go_string_consts) = true;
+  option (daotl.proto.generate_go_string_consts_strip_name_prefix) = "OP_CODE_";
+  option (daotl.proto.generate_go_string_consts_strip_value_prefix) = "OP_CODE_";
+  option (daotl.proto.generate_go_string_consts_name_prefix) = "OC_";
+  option (daotl.proto.generate_go_string_consts_name_suffix) = "_STR";
+  option (daotl.proto.generate_go_string_consts_value_prefix) = "OC_";
+  OP_CODE_RESERVED = 0;
+  OP_CODE_RESOLUTION = 1;
+  OP_CODE_GET_SITEINFO = 2;
+
+  OP_CODE_CREATE_ID = 100;
+  OP_CODE_DELETE_ID = 101;
+  OP_CODE_ADD_ELEMENT = 102;
+  OP_CODE_REMOVE_ELEMENT = 103;
+  OP_CODE_MODIFY_ELEMENT = 104;
+  OP_CODE_LIST_IDS = 105;
+  OP_CODE_LIST_DERIVED_PREFIXES = 106;
+
+  OP_CODE_CHALLENGE_RESPONSE = 200;
+  OP_CODE_VERIFY_RESPONSE = 201;
+  OP_CODE_HOME_PREFIX = 300;
+  OP_CODE_UNHOME_PREFIX = 301;
+  OP_CODE_LIST_HOMED_PREFIXES = 302;
+
+  OP_CODE_SESSION_SETUP = 400;
+  OP_CODE_SESSION_TERMINATE = 401;
 }

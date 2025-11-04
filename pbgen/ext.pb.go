@@ -32,18 +32,18 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
-		ExtensionType: (*bool)(nil),
+		ExtensionType: (*string)(nil),
 		Field:         91701,
 		Name:          "daotl.proto.generate_go_string_consts_strip_name_prefix",
-		Tag:           "varint,91701,opt,name=generate_go_string_consts_strip_name_prefix",
+		Tag:           "bytes,91701,opt,name=generate_go_string_consts_strip_name_prefix",
 		Filename:      "ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
-		ExtensionType: (*bool)(nil),
+		ExtensionType: (*string)(nil),
 		Field:         91702,
 		Name:          "daotl.proto.generate_go_string_consts_strip_value_prefix",
-		Tag:           "varint,91702,opt,name=generate_go_string_consts_strip_value_prefix",
+		Tag:           "bytes,91702,opt,name=generate_go_string_consts_strip_value_prefix",
 		Filename:      "ext.proto",
 	},
 	{
@@ -86,13 +86,13 @@ var (
 	//
 	// optional bool generate_go_string_consts = 91700;
 	E_GenerateGoStringConsts = &file_ext_proto_extTypes[0]
-	// Strip the specified prefix from the generated Go string constant names. (Default: false)
+	// Strip the specified prefix from the generated Go string constant names.
 	//
-	// optional bool generate_go_string_consts_strip_name_prefix = 91701;
+	// optional string generate_go_string_consts_strip_name_prefix = 91701;
 	E_GenerateGoStringConstsStripNamePrefix = &file_ext_proto_extTypes[1]
-	// Strip the specified prefix from the generated Go string constant values. (Default: true)
+	// Strip the specified prefix from the generated Go string constant values. (Default: "{{enum_name}}_")
 	//
-	// optional bool generate_go_string_consts_strip_value_prefix = 91702;
+	// optional string generate_go_string_consts_strip_value_prefix = 91702;
 	E_GenerateGoStringConstsStripValuePrefix = &file_ext_proto_extTypes[2]
 	// Add string prefix to generated Go string constant names.
 	//
@@ -118,8 +118,8 @@ const file_ext_proto_rawDesc = "" +
 	"\n" +
 	"\text.proto\x12\vdaotl.proto\x1a google/protobuf/descriptor.proto:Y\n" +
 	"\x19generate_go_string_consts\x12\x1c.google.protobuf.EnumOptions\x18\xb4\xcc\x05 \x01(\bR\x16generateGoStringConsts:z\n" +
-	"+generate_go_string_consts_strip_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb5\xcc\x05 \x01(\bR%generateGoStringConstsStripNamePrefix:|\n" +
-	",generate_go_string_consts_strip_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb6\xcc\x05 \x01(\bR&generateGoStringConstsStripValuePrefix:o\n" +
+	"+generate_go_string_consts_strip_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb5\xcc\x05 \x01(\tR%generateGoStringConstsStripNamePrefix:|\n" +
+	",generate_go_string_consts_strip_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb6\xcc\x05 \x01(\tR&generateGoStringConstsStripValuePrefix:o\n" +
 	"%generate_go_string_consts_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb7\xcc\x05 \x01(\tR generateGoStringConstsNamePrefix:o\n" +
 	"%generate_go_string_consts_name_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xb8\xcc\x05 \x01(\tR generateGoStringConstsNameSuffix:q\n" +
 	"&generate_go_string_consts_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb9\xcc\x05 \x01(\tR!generateGoStringConstsValuePrefix:q\n" +

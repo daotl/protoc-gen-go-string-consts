@@ -134,6 +134,107 @@ func (BAR) EnumDescriptor() ([]byte, []int) {
 	return file_test_proto_rawDescGZIP(), []int{1}
 }
 
+type OpCode int32
+
+const (
+	OpCode_OP_CODE_RESERVED              OpCode = 0
+	OpCode_OP_CODE_RESOLUTION            OpCode = 1
+	OpCode_OP_CODE_GET_SITEINFO          OpCode = 2
+	OpCode_OP_CODE_CREATE_ID             OpCode = 100
+	OpCode_OP_CODE_DELETE_ID             OpCode = 101
+	OpCode_OP_CODE_ADD_ELEMENT           OpCode = 102
+	OpCode_OP_CODE_REMOVE_ELEMENT        OpCode = 103
+	OpCode_OP_CODE_MODIFY_ELEMENT        OpCode = 104
+	OpCode_OP_CODE_LIST_IDS              OpCode = 105
+	OpCode_OP_CODE_LIST_DERIVED_PREFIXES OpCode = 106
+	OpCode_OP_CODE_CHALLENGE_RESPONSE    OpCode = 200
+	OpCode_OP_CODE_VERIFY_RESPONSE       OpCode = 201
+	OpCode_OP_CODE_HOME_PREFIX           OpCode = 300
+	OpCode_OP_CODE_UNHOME_PREFIX         OpCode = 301
+	OpCode_OP_CODE_LIST_HOMED_PREFIXES   OpCode = 302
+	OpCode_OP_CODE_SESSION_SETUP         OpCode = 400
+	OpCode_OP_CODE_SESSION_TERMINATE     OpCode = 401
+)
+
+// Enum value maps for OpCode.
+var (
+	OpCode_name = map[int32]string{
+		0:   "OP_CODE_RESERVED",
+		1:   "OP_CODE_RESOLUTION",
+		2:   "OP_CODE_GET_SITEINFO",
+		100: "OP_CODE_CREATE_ID",
+		101: "OP_CODE_DELETE_ID",
+		102: "OP_CODE_ADD_ELEMENT",
+		103: "OP_CODE_REMOVE_ELEMENT",
+		104: "OP_CODE_MODIFY_ELEMENT",
+		105: "OP_CODE_LIST_IDS",
+		106: "OP_CODE_LIST_DERIVED_PREFIXES",
+		200: "OP_CODE_CHALLENGE_RESPONSE",
+		201: "OP_CODE_VERIFY_RESPONSE",
+		300: "OP_CODE_HOME_PREFIX",
+		301: "OP_CODE_UNHOME_PREFIX",
+		302: "OP_CODE_LIST_HOMED_PREFIXES",
+		400: "OP_CODE_SESSION_SETUP",
+		401: "OP_CODE_SESSION_TERMINATE",
+	}
+	OpCode_value = map[string]int32{
+		"OP_CODE_RESERVED":              0,
+		"OP_CODE_RESOLUTION":            1,
+		"OP_CODE_GET_SITEINFO":          2,
+		"OP_CODE_CREATE_ID":             100,
+		"OP_CODE_DELETE_ID":             101,
+		"OP_CODE_ADD_ELEMENT":           102,
+		"OP_CODE_REMOVE_ELEMENT":        103,
+		"OP_CODE_MODIFY_ELEMENT":        104,
+		"OP_CODE_LIST_IDS":              105,
+		"OP_CODE_LIST_DERIVED_PREFIXES": 106,
+		"OP_CODE_CHALLENGE_RESPONSE":    200,
+		"OP_CODE_VERIFY_RESPONSE":       201,
+		"OP_CODE_HOME_PREFIX":           300,
+		"OP_CODE_UNHOME_PREFIX":         301,
+		"OP_CODE_LIST_HOMED_PREFIXES":   302,
+		"OP_CODE_SESSION_SETUP":         400,
+		"OP_CODE_SESSION_TERMINATE":     401,
+	}
+)
+
+func (x OpCode) Enum() *OpCode {
+	p := new(OpCode)
+	*p = x
+	return p
+}
+
+func (x OpCode) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (OpCode) Descriptor() protoreflect.EnumDescriptor {
+	return file_test_proto_enumTypes[2].Descriptor()
+}
+
+func (OpCode) Type() protoreflect.EnumType {
+	return &file_test_proto_enumTypes[2]
+}
+
+func (x OpCode) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *OpCode) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = OpCode(num)
+	return nil
+}
+
+// Deprecated: Use OpCode.Descriptor instead.
+func (OpCode) EnumDescriptor() ([]byte, []int) {
+	return file_test_proto_rawDescGZIP(), []int{2}
+}
+
 var File_test_proto protoreflect.FileDescriptor
 
 const file_test_proto_rawDesc = "" +
@@ -142,10 +243,28 @@ const file_test_proto_rawDesc = "" +
 	"test.proto\x12\x05tests\x1a+daotl/protoc-gen-go-string-consts/ext.proto*5\n" +
 	"\x03FOO\x12\t\n" +
 	"\x05FOO_A\x10\x00\x12\t\n" +
-	"\x05FOO_B\x10\x01\x1a\x18\xa0\xe3,\x01\xca\xe3,\x06Prefix\xd2\xe3,\x06Suffix*=\n" +
+	"\x05FOO_B\x10\x01\x1a\x18\xa0\xe3,\x01\xca\xe3,\x06Prefix\xd2\xe3,\x06Suffix*A\n" +
 	"\x03BAR\x12\t\n" +
 	"\x05BAR_A\x10\x00\x12\t\n" +
-	"\x05BAR_B\x10\x01\x1a \xa0\xe3,\x01\xa8\xe3,\x01\xb0\xe3,\x00\xba\xe3,\x06Prefix\xc2\xe3,\x06SuffixB8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
+	"\x05BAR_B\x10\x01\x1a$\xa0\xe3,\x01\xaa\xe3,\x04BAR_\xb2\xe3,\x00\xba\xe3,\x06Prefix\xc2\xe3,\x06Suffix*\x8f\x04\n" +
+	"\x06OpCode\x12\x14\n" +
+	"\x10OP_CODE_RESERVED\x10\x00\x12\x16\n" +
+	"\x12OP_CODE_RESOLUTION\x10\x01\x12\x18\n" +
+	"\x14OP_CODE_GET_SITEINFO\x10\x02\x12\x15\n" +
+	"\x11OP_CODE_CREATE_ID\x10d\x12\x15\n" +
+	"\x11OP_CODE_DELETE_ID\x10e\x12\x17\n" +
+	"\x13OP_CODE_ADD_ELEMENT\x10f\x12\x1a\n" +
+	"\x16OP_CODE_REMOVE_ELEMENT\x10g\x12\x1a\n" +
+	"\x16OP_CODE_MODIFY_ELEMENT\x10h\x12\x14\n" +
+	"\x10OP_CODE_LIST_IDS\x10i\x12!\n" +
+	"\x1dOP_CODE_LIST_DERIVED_PREFIXES\x10j\x12\x1f\n" +
+	"\x1aOP_CODE_CHALLENGE_RESPONSE\x10\xc8\x01\x12\x1c\n" +
+	"\x17OP_CODE_VERIFY_RESPONSE\x10\xc9\x01\x12\x18\n" +
+	"\x13OP_CODE_HOME_PREFIX\x10\xac\x02\x12\x1a\n" +
+	"\x15OP_CODE_UNHOME_PREFIX\x10\xad\x02\x12 \n" +
+	"\x1bOP_CODE_LIST_HOMED_PREFIXES\x10\xae\x02\x12\x1a\n" +
+	"\x15OP_CODE_SESSION_SETUP\x10\x90\x03\x12\x1e\n" +
+	"\x19OP_CODE_SESSION_TERMINATE\x10\x91\x03\x1a2\xa0\xe3,\x01\xaa\xe3,\bOP_CODE_\xb2\xe3,\bOP_CODE_\xba\xe3,\x03OC_\xc2\xe3,\x04_STR\xca\xe3,\x03OC_B8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
 
 var (
 	file_test_proto_rawDescOnce sync.Once
@@ -159,10 +278,11 @@ func file_test_proto_rawDescGZIP() []byte {
 	return file_test_proto_rawDescData
 }
 
-var file_test_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_test_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_test_proto_goTypes = []any{
-	(FOO)(0), // 0: tests.FOO
-	(BAR)(0), // 1: tests.BAR
+	(FOO)(0),    // 0: tests.FOO
+	(BAR)(0),    // 1: tests.BAR
+	(OpCode)(0), // 2: tests.OpCode
 }
 var file_test_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -182,7 +302,7 @@ func file_test_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_test_proto_rawDesc), len(file_test_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
