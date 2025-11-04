@@ -18,10 +18,10 @@ extend google.protobuf.EnumOptions {
   bool gen_go_string_consts = 91700;
   // Strip the specified prefix from the generated Go string constant names.
   string gen_go_string_consts_strip_name_prefix = 91701;
-  // Turn string const name from snake case into pascal case
+  // If true convert string const name into PascalCase
   // (apply before `gen_go_string_consts_name_prefix` and `gen_go_string_consts_name_suffix`).
   bool gen_go_string_consts_name_pascal_case = 91702;
-  // Turn string const name into CAPS_CASE
+  // If true convert string const name into CAPS_CASE
   // (apply before `gen_go_string_consts_name_prefix` and `gen_go_string_consts_name_suffix`).
   // Can't be used together with gen_go_string_consts_name_pascal_case.
   bool gen_go_string_consts_name_caps_case = 91703;
