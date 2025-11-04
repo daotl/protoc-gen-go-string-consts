@@ -12,8 +12,8 @@ const FOO_A = "PrefixASuffix"
 const FOO_B = "PrefixBSuffix"
 
 // String constants for enum tests.BAR
-const PrefixASuffix = "BAR_A"
-const PrefixBSuffix = "BAR_B"
+const PrefixBAR_ASuffix = "BAR_A"
+const PrefixBAR_BSuffix = "BAR_B"
 
 // String constants for enum tests.OpCode
 const OpCodeReserved = "OC_RESERVED"
@@ -33,3 +33,11 @@ const OpCodeUnhomePrefix = "OC_UNHOME_PREFIX"
 const OpCodeListHomedPrefixes = "OC_LIST_HOMED_PREFIXES"
 const OpCodeSessionSetup = "OC_SESSION_SETUP"
 const OpCodeSessionTerminate = "OC_SESSION_TERMINATE"
+
+// String constants for enum tests.SampleMessage1.InnerEnum
+const SampleMessage1InnerEnumUnknown = "INNER_ENUM_UNKNOWN"
+const SampleMessage1InnerEnumVal2 = "INNER_ENUM_VAL2"
+
+// String constants for enum tests.SampleMessage2.InnerEnum
+const SAMPLE_MESSAGE2_INNER_ENUM_UNKNOWN = "INNER_ENUM_UNKNOWN"
+const SAMPLE_MESSAGE2_INNER_ENUM_VAL3 = "INNER_ENUM_VAL3"

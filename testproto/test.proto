@@ -6,6 +6,7 @@ option go_package = "github.com/daotl/protoc-gen-go-string-consts/testproto";
 
 enum FOO {
   option (daotl.proto.gen_go_string_consts) = true;
+  option (daotl.proto.gen_go_string_consts_strip_name_prefix) = "FOO_";
   option (daotl.proto.gen_go_string_consts_value_prefix) = "Prefix";
   option (daotl.proto.gen_go_string_consts_value_suffix) = "Suffix";
 
@@ -24,12 +25,29 @@ enum BAR {
   BAR_B = 1;
 }
 
+message SampleMessage1 {
+  enum InnerEnum {
+    option (daotl.proto.gen_go_string_consts) = true;
+    option (daotl.proto.gen_go_string_consts_name_pascal_case) = true;
+    INNER_ENUM_UNKNOWN = 0;
+    INNER_ENUM_VAL2 = 1;
+  }
+}
+
+message SampleMessage2 {
+  enum InnerEnum {
+    option (daotl.proto.gen_go_string_consts) = true;
+    option (daotl.proto.gen_go_string_consts_name_caps_case) = true;
+    INNER_ENUM_UNKNOWN = 0;
+    INNER_ENUM_VAL3 = 1;
+  }
+}
+
 enum OpCode {
   option (daotl.proto.gen_go_string_consts) = true;
-  option (daotl.proto.gen_go_string_consts_strip_name_prefix) = "OP_CODE_";
+  option (daotl.proto.gen_go_string_consts_strip_name_prefix) = "OpCode_";
   option (daotl.proto.gen_go_string_consts_strip_value_prefix) = "OP_CODE_";
   option (daotl.proto.gen_go_string_consts_name_pascal_case) = true;
-  option (daotl.proto.gen_go_string_consts_name_prefix) = "OpCode";
   option (daotl.proto.gen_go_string_consts_value_prefix) = "OC_";
 
   OP_CODE_RESERVED = 0;

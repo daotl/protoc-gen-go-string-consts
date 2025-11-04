@@ -235,18 +235,210 @@ func (OpCode) EnumDescriptor() ([]byte, []int) {
 	return file_test_proto_rawDescGZIP(), []int{2}
 }
 
+type SampleMessage1_InnerEnum int32
+
+const (
+	SampleMessage1_INNER_ENUM_UNKNOWN SampleMessage1_InnerEnum = 0
+	SampleMessage1_INNER_ENUM_VAL2    SampleMessage1_InnerEnum = 1
+)
+
+// Enum value maps for SampleMessage1_InnerEnum.
+var (
+	SampleMessage1_InnerEnum_name = map[int32]string{
+		0: "INNER_ENUM_UNKNOWN",
+		1: "INNER_ENUM_VAL2",
+	}
+	SampleMessage1_InnerEnum_value = map[string]int32{
+		"INNER_ENUM_UNKNOWN": 0,
+		"INNER_ENUM_VAL2":    1,
+	}
+)
+
+func (x SampleMessage1_InnerEnum) Enum() *SampleMessage1_InnerEnum {
+	p := new(SampleMessage1_InnerEnum)
+	*p = x
+	return p
+}
+
+func (x SampleMessage1_InnerEnum) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SampleMessage1_InnerEnum) Descriptor() protoreflect.EnumDescriptor {
+	return file_test_proto_enumTypes[3].Descriptor()
+}
+
+func (SampleMessage1_InnerEnum) Type() protoreflect.EnumType {
+	return &file_test_proto_enumTypes[3]
+}
+
+func (x SampleMessage1_InnerEnum) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *SampleMessage1_InnerEnum) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = SampleMessage1_InnerEnum(num)
+	return nil
+}
+
+// Deprecated: Use SampleMessage1_InnerEnum.Descriptor instead.
+func (SampleMessage1_InnerEnum) EnumDescriptor() ([]byte, []int) {
+	return file_test_proto_rawDescGZIP(), []int{0, 0}
+}
+
+type SampleMessage2_InnerEnum int32
+
+const (
+	SampleMessage2_INNER_ENUM_UNKNOWN SampleMessage2_InnerEnum = 0
+	SampleMessage2_INNER_ENUM_VAL3    SampleMessage2_InnerEnum = 1
+)
+
+// Enum value maps for SampleMessage2_InnerEnum.
+var (
+	SampleMessage2_InnerEnum_name = map[int32]string{
+		0: "INNER_ENUM_UNKNOWN",
+		1: "INNER_ENUM_VAL3",
+	}
+	SampleMessage2_InnerEnum_value = map[string]int32{
+		"INNER_ENUM_UNKNOWN": 0,
+		"INNER_ENUM_VAL3":    1,
+	}
+)
+
+func (x SampleMessage2_InnerEnum) Enum() *SampleMessage2_InnerEnum {
+	p := new(SampleMessage2_InnerEnum)
+	*p = x
+	return p
+}
+
+func (x SampleMessage2_InnerEnum) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SampleMessage2_InnerEnum) Descriptor() protoreflect.EnumDescriptor {
+	return file_test_proto_enumTypes[4].Descriptor()
+}
+
+func (SampleMessage2_InnerEnum) Type() protoreflect.EnumType {
+	return &file_test_proto_enumTypes[4]
+}
+
+func (x SampleMessage2_InnerEnum) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *SampleMessage2_InnerEnum) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = SampleMessage2_InnerEnum(num)
+	return nil
+}
+
+// Deprecated: Use SampleMessage2_InnerEnum.Descriptor instead.
+func (SampleMessage2_InnerEnum) EnumDescriptor() ([]byte, []int) {
+	return file_test_proto_rawDescGZIP(), []int{1, 0}
+}
+
+type SampleMessage1 struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SampleMessage1) Reset() {
+	*x = SampleMessage1{}
+	mi := &file_test_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SampleMessage1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SampleMessage1) ProtoMessage() {}
+
+func (x *SampleMessage1) ProtoReflect() protoreflect.Message {
+	mi := &file_test_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SampleMessage1.ProtoReflect.Descriptor instead.
+func (*SampleMessage1) Descriptor() ([]byte, []int) {
+	return file_test_proto_rawDescGZIP(), []int{0}
+}
+
+type SampleMessage2 struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SampleMessage2) Reset() {
+	*x = SampleMessage2{}
+	mi := &file_test_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SampleMessage2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SampleMessage2) ProtoMessage() {}
+
+func (x *SampleMessage2) ProtoReflect() protoreflect.Message {
+	mi := &file_test_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SampleMessage2.ProtoReflect.Descriptor instead.
+func (*SampleMessage2) Descriptor() ([]byte, []int) {
+	return file_test_proto_rawDescGZIP(), []int{1}
+}
+
 var File_test_proto protoreflect.FileDescriptor
 
 const file_test_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"test.proto\x12\x05tests\x1a+daotl/protoc-gen-go-string-consts/ext.proto*5\n" +
+	"test.proto\x12\x05tests\x1a+daotl/protoc-gen-go-string-consts/ext.proto\"T\n" +
+	"\x0eSampleMessage1\"B\n" +
+	"\tInnerEnum\x12\x16\n" +
+	"\x12INNER_ENUM_UNKNOWN\x10\x00\x12\x13\n" +
+	"\x0fINNER_ENUM_VAL2\x10\x01\x1a\b\xa0\xe3,\x01\xb0\xe3,\x01\"T\n" +
+	"\x0eSampleMessage2\"B\n" +
+	"\tInnerEnum\x12\x16\n" +
+	"\x12INNER_ENUM_UNKNOWN\x10\x00\x12\x13\n" +
+	"\x0fINNER_ENUM_VAL3\x10\x01\x1a\b\xa0\xe3,\x01\xb8\xe3,\x01*=\n" +
 	"\x03FOO\x12\t\n" +
 	"\x05FOO_A\x10\x00\x12\t\n" +
-	"\x05FOO_B\x10\x01\x1a\x18\xa0\xe3,\x01\xda\xe3,\x06Prefix\xe2\xe3,\x06Suffix*A\n" +
+	"\x05FOO_B\x10\x01\x1a \xa0\xe3,\x01\xaa\xe3,\x04FOO_\xda\xe3,\x06Prefix\xe2\xe3,\x06Suffix*A\n" +
 	"\x03BAR\x12\t\n" +
 	"\x05BAR_A\x10\x00\x12\t\n" +
-	"\x05BAR_B\x10\x01\x1a$\xa0\xe3,\x01\xaa\xe3,\x04BAR_\xc2\xe3,\x06Prefix\xca\xe3,\x06Suffix\xd2\xe3,\x00*\x8e\x04\n" +
+	"\x05BAR_B\x10\x01\x1a$\xa0\xe3,\x01\xaa\xe3,\x04BAR_\xc2\xe3,\x06Prefix\xca\xe3,\x06Suffix\xd2\xe3,\x00*\x83\x04\n" +
 	"\x06OpCode\x12\x14\n" +
 	"\x10OP_CODE_RESERVED\x10\x00\x12\x16\n" +
 	"\x12OP_CODE_RESOLUTION\x10\x01\x12\x18\n" +
@@ -264,7 +456,7 @@ const file_test_proto_rawDesc = "" +
 	"\x15OP_CODE_UNHOME_PREFIX\x10\xad\x02\x12 \n" +
 	"\x1bOP_CODE_LIST_HOMED_PREFIXES\x10\xae\x02\x12\x1a\n" +
 	"\x15OP_CODE_SESSION_SETUP\x10\x90\x03\x12\x1e\n" +
-	"\x19OP_CODE_SESSION_TERMINATE\x10\x91\x03\x1a1\xa0\xe3,\x01\xaa\xe3,\bOP_CODE_\xb0\xe3,\x01\xc2\xe3,\x06OpCode\xd2\xe3,\bOP_CODE_\xda\xe3,\x03OC_B8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
+	"\x19OP_CODE_SESSION_TERMINATE\x10\x91\x03\x1a&\xa0\xe3,\x01\xaa\xe3,\aOpCode_\xb0\xe3,\x01\xd2\xe3,\bOP_CODE_\xda\xe3,\x03OC_B8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
 
 var (
 	file_test_proto_rawDescOnce sync.Once
@@ -278,11 +470,16 @@ func file_test_proto_rawDescGZIP() []byte {
 	return file_test_proto_rawDescData
 }
 
-var file_test_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_test_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_test_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_test_proto_goTypes = []any{
-	(FOO)(0),    // 0: tests.FOO
-	(BAR)(0),    // 1: tests.BAR
-	(OpCode)(0), // 2: tests.OpCode
+	(FOO)(0),                      // 0: tests.FOO
+	(BAR)(0),                      // 1: tests.BAR
+	(OpCode)(0),                   // 2: tests.OpCode
+	(SampleMessage1_InnerEnum)(0), // 3: tests.SampleMessage1.InnerEnum
+	(SampleMessage2_InnerEnum)(0), // 4: tests.SampleMessage2.InnerEnum
+	(*SampleMessage1)(nil),        // 5: tests.SampleMessage1
+	(*SampleMessage2)(nil),        // 6: tests.SampleMessage2
 }
 var file_test_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -302,14 +499,15 @@ func file_test_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_test_proto_rawDesc), len(file_test_proto_rawDesc)),
-			NumEnums:      3,
-			NumMessages:   0,
+			NumEnums:      5,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_test_proto_goTypes,
 		DependencyIndexes: file_test_proto_depIdxs,
 		EnumInfos:         file_test_proto_enumTypes,
+		MessageInfos:      file_test_proto_msgTypes,
 	}.Build()
 	File_test_proto = out.File
 	file_test_proto_goTypes = nil
