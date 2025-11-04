@@ -7,26 +7,29 @@ package testproto
 
 // Generated string constants for enums
 
+// String constants for enum tests.FOO
 const FOO_A = "PrefixASuffix"
 const FOO_B = "PrefixBSuffix"
 
+// String constants for enum tests.BAR
 const PrefixASuffix = "BAR_A"
 const PrefixBSuffix = "BAR_B"
 
-const OC_RESERVED_STR = "OC_RESERVED"
-const OC_RESOLUTION_STR = "OC_RESOLUTION"
-const OC_GET_SITEINFO_STR = "OC_GET_SITEINFO"
-const OC_CREATE_ID_STR = "OC_CREATE_ID"
-const OC_DELETE_ID_STR = "OC_DELETE_ID"
-const OC_ADD_ELEMENT_STR = "OC_ADD_ELEMENT"
-const OC_REMOVE_ELEMENT_STR = "OC_REMOVE_ELEMENT"
-const OC_MODIFY_ELEMENT_STR = "OC_MODIFY_ELEMENT"
-const OC_LIST_IDS_STR = "OC_LIST_IDS"
-const OC_LIST_DERIVED_PREFIXES_STR = "OC_LIST_DERIVED_PREFIXES"
-const OC_CHALLENGE_RESPONSE_STR = "OC_CHALLENGE_RESPONSE"
-const OC_VERIFY_RESPONSE_STR = "OC_VERIFY_RESPONSE"
-const OC_HOME_PREFIX_STR = "OC_HOME_PREFIX"
-const OC_UNHOME_PREFIX_STR = "OC_UNHOME_PREFIX"
-const OC_LIST_HOMED_PREFIXES_STR = "OC_LIST_HOMED_PREFIXES"
-const OC_SESSION_SETUP_STR = "OC_SESSION_SETUP"
-const OC_SESSION_TERMINATE_STR = "OC_SESSION_TERMINATE"
+// String constants for enum tests.OpCode
+const OpCodeReserved = "OC_RESERVED"
+const OpCodeResolution = "OC_RESOLUTION"
+const OpCodeGetSiteinfo = "OC_GET_SITEINFO"
+const OpCodeCreateId = "OC_CREATE_ID"
+const OpCodeDeleteId = "OC_DELETE_ID"
+const OpCodeAddElement = "OC_ADD_ELEMENT"
+const OpCodeRemoveElement = "OC_REMOVE_ELEMENT"
+const OpCodeModifyElement = "OC_MODIFY_ELEMENT"
+const OpCodeListIds = "OC_LIST_IDS"
+const OpCodeListDerivedPrefixes = "OC_LIST_DERIVED_PREFIXES"
+const OpCodeChallengeResponse = "OC_CHALLENGE_RESPONSE"
+const OpCodeVerifyResponse = "OC_VERIFY_RESPONSE"
+const OpCodeHomePrefix = "OC_HOME_PREFIX"
+const OpCodeUnhomePrefix = "OC_UNHOME_PREFIX"
+const OpCodeListHomedPrefixes = "OC_LIST_HOMED_PREFIXES"
+const OpCodeSessionSetup = "OC_SESSION_SETUP"
+const OpCodeSessionTerminate = "OC_SESSION_TERMINATE"

@@ -6,7 +6,7 @@ golangci-lint = "latest"
 buf = "1.59.0"
 protoc = "33.0"
 protoc-gen-go = "1.36.10"
-"go:github.com/daotl/protoc-gen-go-string-consts" = "v0.5.0"
+"go:github.com/daotl/protoc-gen-go-string-consts" = "v0.6.0"
 
 [hooks]
 postinstall = "lefthook install"

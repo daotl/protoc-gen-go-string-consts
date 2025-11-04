@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"strings"
 
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 	gengo "google.golang.org/protobuf/cmd/protoc-gen-go/internal_gengo"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
@@ -34,7 +36,7 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 	for _, enum := range file.Enums {
 		opts, ok := enum.Desc.Options().(*descriptorpb.EnumOptions)
 		if !ok {
-			log.Fatalf("invalid options type for enum %s", enum.Desc.FullName())
+			log.Fatalf("invalid options type for enum: %s", enum.Desc.Name())
 		}
 		if opts == nil {
 			continue
@@ -66,7 +68,7 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 	g.P()
 	g.P("package ", file.GoPackageName)
 	g.P()
-	g.P("// Generated string constants for enums")
+	g.P("/* Generated string constants for enums */")
 	g.P()
 
 	for _, enum := range file.Enums {
@@ -109,6 +111,19 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 					"invalid type for generate_go_string_consts_strip_value_prefix option on enum %s",
 					enum.Desc.FullName(),
 				)
+			}
+		}
+
+		namePascalCase := false
+		if proto.HasExtension(opts, pbgen.E_GenerateGoStringConstsNamePascalCase) {
+			if ncc, ok := proto.GetExtension(opts,
+				pbgen.E_GenerateGoStringConstsNamePascalCase).(bool); !ok {
+				log.Fatalf(
+					"invalid type for generate_go_string_consts_name_pascal_case option on enum %s",
+					enum.Desc.FullName(),
+				)
+			} else {
+				namePascalCase = ncc
 			}
 		}
 
@@ -164,13 +179,17 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 			}
 		}
 
+		g.P("// String constants for enum " + enum.Desc.FullName())
 		// Generate constants
 		for _, val := range enum.Values {
 			name := string(val.Desc.Name()) // "FOO_A"
 			value := name
 
 			name, _ = strings.CutPrefix(name, stripNamePrefix) // "A"
-			name = namePrefix + name + nameSuffix              // "{PREFIX}A{SUFFIX}"
+			if namePascalCase {
+				name = snakeToPascalCase(name)
+			}
+			name = namePrefix + name + nameSuffix // "{PREFIX}A{SUFFIX}"
 
 			value, _ = strings.CutPrefix(value, stripValuePrefix) // "A"
 			value = valuePrefix + value + valueSuffix             // "{PREFIX}A{SUFFIX}"
@@ -179,4 +198,20 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 		}
 		g.P()
 	}
+}
+
+// snakeToPascalCase converts a snake_case string to PascalCase.
+func snakeToPascalCase(s string) string {
+	parts := strings.Split(s, "_")
+	titleCaser := cases.Title(language.English)
+	if len(parts) == 1 {
+		return titleCaser.String(parts[0])
+	}
+	result := ""
+	for i := range parts {
+		if parts[i] != "" {
+			result += titleCaser.String(parts[i])
+		}
+	}
+	return result
 }

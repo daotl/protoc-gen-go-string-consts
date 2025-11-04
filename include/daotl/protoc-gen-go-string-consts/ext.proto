@@ -10,15 +10,17 @@ extend google.protobuf.EnumOptions {
   bool generate_go_string_consts = 91700;
   // Strip the specified prefix from the generated Go string constant names.
   string generate_go_string_consts_strip_name_prefix = 91701;
-  // Strip the specified prefix from the generated Go string constant values, (Default: "{{enum_name}}_")
-  // By default, the string constant value is the same as the name.
-  string generate_go_string_consts_strip_value_prefix = 91702;
+    // Turn string const name from snake case into pascal case (apply before `generate_go_string_consts_name_prefix` and `generate_go_string_consts_name_suffix`).
+  bool generate_go_string_consts_name_pascal_case = 91702;
   // Add string prefix to generated Go string constant names.
   string generate_go_string_consts_name_prefix = 91703;
   // Add string suffix to generated Go string constant names.
   string generate_go_string_consts_name_suffix = 91704;
+  // Strip the specified prefix from the generated Go string constant values, (Default: "{{enum_name}}_")
+  // By default, the string constant value is the same as the name.
+  string generate_go_string_consts_strip_value_prefix = 91705;
   // Add string prefix to generated Go string constant values.
-  string generate_go_string_consts_value_prefix = 91705;
+  string generate_go_string_consts_value_prefix = 91706;
   // Add string suffix to generated Go string constant values.
-  string generate_go_string_consts_value_suffix = 91706;
+  string generate_go_string_consts_value_suffix = 91707;
 }

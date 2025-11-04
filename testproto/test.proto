@@ -27,8 +27,8 @@ enum OpCode {
   option (daotl.proto.generate_go_string_consts) = true;
   option (daotl.proto.generate_go_string_consts_strip_name_prefix) = "OP_CODE_";
   option (daotl.proto.generate_go_string_consts_strip_value_prefix) = "OP_CODE_";
-  option (daotl.proto.generate_go_string_consts_name_prefix) = "OC_";
-  option (daotl.proto.generate_go_string_consts_name_suffix) = "_STR";
+  option (daotl.proto.generate_go_string_consts_name_pascal_case) = true;
+  option (daotl.proto.generate_go_string_consts_name_prefix) = "OpCode";
   option (daotl.proto.generate_go_string_consts_value_prefix) = "OC_";
   OP_CODE_RESERVED = 0;
   OP_CODE_RESOLUTION = 1;
