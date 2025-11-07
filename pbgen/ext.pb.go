@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        (unknown)
-// source: ext.proto
+// source: daotl/protoc-gen-go-string-consts/ext.proto
 
 package pbgen
 
@@ -21,14 +21,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
+var file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
 		ExtensionType: (*bool)(nil),
 		Field:         91700,
 		Name:          "daotl.gen_go_string_consts.enabled",
 		Tag:           "varint,91700,opt,name=enabled",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -36,7 +36,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91701,
 		Name:          "daotl.gen_go_string_consts.strip_name_prefix",
 		Tag:           "bytes,91701,opt,name=strip_name_prefix",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -44,7 +44,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91702,
 		Name:          "daotl.gen_go_string_consts.name_pascal_case",
 		Tag:           "varint,91702,opt,name=name_pascal_case",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -52,7 +52,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91703,
 		Name:          "daotl.gen_go_string_consts.name_caps_case",
 		Tag:           "varint,91703,opt,name=name_caps_case",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -60,7 +60,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91704,
 		Name:          "daotl.gen_go_string_consts.name_prefix",
 		Tag:           "bytes,91704,opt,name=name_prefix",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -68,7 +68,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91705,
 		Name:          "daotl.gen_go_string_consts.name_suffix",
 		Tag:           "bytes,91705,opt,name=name_suffix",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -76,7 +76,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91706,
 		Name:          "daotl.gen_go_string_consts.strip_value_prefix",
 		Tag:           "bytes,91706,opt,name=strip_value_prefix",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -84,7 +84,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91707,
 		Name:          "daotl.gen_go_string_consts.value_prefix",
 		Tag:           "bytes,91707,opt,name=value_prefix",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 	{
 		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
@@ -92,7 +92,7 @@ var file_ext_proto_extTypes = []protoimpl.ExtensionInfo{
 		Field:         91708,
 		Name:          "daotl.gen_go_string_consts.value_suffix",
 		Tag:           "bytes,91708,opt,name=value_suffix",
-		Filename:      "ext.proto",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
 }
 
@@ -101,50 +101,50 @@ var (
 	// Enable generation of Go string constants for this enum. (Default: false)
 	//
 	// optional bool enabled = 91700;
-	E_Enabled = &file_ext_proto_extTypes[0]
+	E_Enabled = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[0]
 	// Strip the specified prefix from the generated Go string constant names.
 	//
 	// optional string strip_name_prefix = 91701;
-	E_StripNamePrefix = &file_ext_proto_extTypes[1]
+	E_StripNamePrefix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[1]
 	// If true convert string const name into PascalCase
 	// (apply before `name_prefix` and `name_suffix`).
 	//
 	// optional bool name_pascal_case = 91702;
-	E_NamePascalCase = &file_ext_proto_extTypes[2]
+	E_NamePascalCase = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[2]
 	// If true convert string const name into CAPS_CASE
 	// (apply before `name_prefix` and `name_suffix`).
 	// Can't be used together with name_pascal_case.
 	//
 	// optional bool name_caps_case = 91703;
-	E_NameCapsCase = &file_ext_proto_extTypes[3]
+	E_NameCapsCase = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[3]
 	// Add string prefix to generated Go string constant names.
 	//
 	// optional string name_prefix = 91704;
-	E_NamePrefix = &file_ext_proto_extTypes[4]
+	E_NamePrefix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[4]
 	// Add string suffix to generated Go string constant names.
 	//
 	// optional string name_suffix = 91705;
-	E_NameSuffix = &file_ext_proto_extTypes[5]
+	E_NameSuffix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[5]
 	// Strip the specified prefix from the generated Go string constant values, (Default: "{{enum_name}}_")
 	// By default, the string constant value is the same as the name.
 	//
 	// optional string strip_value_prefix = 91706;
-	E_StripValuePrefix = &file_ext_proto_extTypes[6]
+	E_StripValuePrefix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[6]
 	// Add string prefix to generated Go string constant values.
 	//
 	// optional string value_prefix = 91707;
-	E_ValuePrefix = &file_ext_proto_extTypes[7]
+	E_ValuePrefix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[7]
 	// Add string suffix to generated Go string constant values.
 	//
 	// optional string value_suffix = 91708;
-	E_ValueSuffix = &file_ext_proto_extTypes[8]
+	E_ValueSuffix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[8]
 )
 
-var File_ext_proto protoreflect.FileDescriptor
+var File_daotl_protoc_gen_go_string_consts_ext_proto protoreflect.FileDescriptor
 
-const file_ext_proto_rawDesc = "" +
+const file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc = "" +
 	"\n" +
-	"\text.proto\x12\x1adaotl.gen_go_string_consts\x1a google/protobuf/descriptor.proto:8\n" +
+	"+daotl/protoc-gen-go-string-consts/ext.proto\x12\x1adaotl.gen_go_string_consts\x1a google/protobuf/descriptor.proto:8\n" +
 	"\aenabled\x12\x1c.google.protobuf.EnumOptions\x18\xb4\xcc\x05 \x01(\bR\aenabled:J\n" +
 	"\x11strip_name_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xb5\xcc\x05 \x01(\tR\x0fstripNamePrefix:H\n" +
 	"\x10name_pascal_case\x12\x1c.google.protobuf.EnumOptions\x18\xb6\xcc\x05 \x01(\bR\x0enamePascalCase:D\n" +
@@ -158,10 +158,10 @@ const file_ext_proto_rawDesc = "" +
 	"\fvalue_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xbc\xcc\x05 \x01(\tR\vvalueSuffixB\xdb\x01\n" +
 	"\x1ecom.daotl.gen_go_string_constsB\bExtProtoP\x01Z2github.com/daotl/protoc-gen-go-string-consts/pbgen\xa2\x02\x03DGX\xaa\x02\x17Daotl.GenGoStringConsts\xca\x02\x17Daotl\\GenGoStringConsts\xe2\x02#Daotl\\GenGoStringConsts\\GPBMetadata\xea\x02\x18Daotl::GenGoStringConstsb\x06proto3"
 
-var file_ext_proto_goTypes = []any{
+var file_daotl_protoc_gen_go_string_consts_ext_proto_goTypes = []any{
 	(*descriptorpb.EnumOptions)(nil), // 0: google.protobuf.EnumOptions
 }
-var file_ext_proto_depIdxs = []int32{
+var file_daotl_protoc_gen_go_string_consts_ext_proto_depIdxs = []int32{
 	0, // 0: daotl.gen_go_string_consts.enabled:extendee -> google.protobuf.EnumOptions
 	0, // 1: daotl.gen_go_string_consts.strip_name_prefix:extendee -> google.protobuf.EnumOptions
 	0, // 2: daotl.gen_go_string_consts.name_pascal_case:extendee -> google.protobuf.EnumOptions
@@ -178,26 +178,26 @@ var file_ext_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_ext_proto_init() }
-func file_ext_proto_init() {
-	if File_ext_proto != nil {
+func init() { file_daotl_protoc_gen_go_string_consts_ext_proto_init() }
+func file_daotl_protoc_gen_go_string_consts_ext_proto_init() {
+	if File_daotl_protoc_gen_go_string_consts_ext_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ext_proto_rawDesc), len(file_ext_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc), len(file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 9,
 			NumServices:   0,
 		},
-		GoTypes:           file_ext_proto_goTypes,
-		DependencyIndexes: file_ext_proto_depIdxs,
-		ExtensionInfos:    file_ext_proto_extTypes,
+		GoTypes:           file_daotl_protoc_gen_go_string_consts_ext_proto_goTypes,
+		DependencyIndexes: file_daotl_protoc_gen_go_string_consts_ext_proto_depIdxs,
+		ExtensionInfos:    file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes,
 	}.Build()
-	File_ext_proto = out.File
-	file_ext_proto_goTypes = nil
-	file_ext_proto_depIdxs = nil
+	File_daotl_protoc_gen_go_string_consts_ext_proto = out.File
+	file_daotl_protoc_gen_go_string_consts_ext_proto_goTypes = nil
+	file_daotl_protoc_gen_go_string_consts_ext_proto_depIdxs = nil
 }
