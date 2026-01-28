@@ -37,6 +37,12 @@ extend google.protobuf.EnumOptions {
   // Add string suffix to generated Go string constant values.
   string gen_go_string_consts_value_suffix = 91708;
 }
+
+extend google.protobuf.EnumValueOptions {
+  // Use a fixed value for this enum value's Go string constant.
+  // If set, ignores `value_prefix` and `value_suffix` from EnumOptions.
+  string gen_go_string_consts_value = 91710;
+}
 ```
 
 See `testproto/test.proto` for examples.

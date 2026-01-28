@@ -224,13 +224,23 @@ func (g *fileStringConstsGenerator) processEnum(enum *protogen.Enum) (seen int) 
 	// Generate constants
 	for _, val := range enum.Values {
 		name := g.constNameFor(val, stripNamePrefix, namePascalCase, nameCapsCase, namePrefix, nameSuffix)
-		value := string(val.Desc.Name()) // "FOO_A"
 
-		value, _ = strings.CutPrefix(value, stripValuePrefix) // "A"
-		value = valuePrefix + value + valueSuffix             // "{PREFIX}A{SUFFIX}"
+		// Get the enum value options
+		valOpts := val.Desc.Options()
+
+		// Check if enum value has a custom value set - if so, use it directly
+		var value string
+		if valOpts != nil && proto.HasExtension(valOpts, pbgen.E_Value) {
+			value, _ = proto.GetExtension(valOpts, pbgen.E_Value).(string)
+		} else {
+			// Apply enum-level options
+			value = string(val.Desc.Name())                       // "FOO_A"
+			value, _ = strings.CutPrefix(value, stripValuePrefix) // "A"
+			value = valuePrefix + value + valueSuffix             // "{PREFIX}A{SUFFIX}"
+		}
 
 		//nolint: errcheck // Type 100% matches
-		if val.Desc.Options().(*descriptorpb.EnumValueOptions).GetDeprecated() {
+		if valOpts != nil && valOpts.(*descriptorpb.EnumValueOptions).GetDeprecated() {
 			g.gf.P("// Deprecated: Do not use.")
 		}
 		g.gf.P("const ", name, " = ", strconv.Quote(value))

@@ -34,6 +34,11 @@ const OpCodeListHomedPrefixes = "OC_LIST_HOMED_PREFIXES"
 const OpCodeSessionSetup = "OC_SESSION_SETUP"
 const OpCodeSessionTerminate = "OC_SESSION_TERMINATE"
 
+// String constants for enum tests.CustomValueEnum
+const CustomValueEnum_NORMAL = "PREFIX_NORMAL_SUFFIX"
+const CustomValueEnum_CUSTOM = "custom_value"
+const CustomValueEnum_OVERRIDE = "overridden"
+
 // String constants for enum tests.SampleMessage1.InnerEnum
 const SampleMessage1InnerEnumUnknown = "INNER_ENUM_UNKNOWN"
 const SampleMessage1InnerEnumVal2 = "INNER_ENUM_VAL2"

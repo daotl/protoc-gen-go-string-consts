@@ -235,6 +235,65 @@ func (OpCode) EnumDescriptor() ([]byte, []int) {
 	return file_test_proto_rawDescGZIP(), []int{2}
 }
 
+type CustomValueEnum int32
+
+const (
+	CustomValueEnum_CustomValueEnum_NORMAL   CustomValueEnum = 0
+	CustomValueEnum_CustomValueEnum_CUSTOM   CustomValueEnum = 1
+	CustomValueEnum_CustomValueEnum_OVERRIDE CustomValueEnum = 2
+)
+
+// Enum value maps for CustomValueEnum.
+var (
+	CustomValueEnum_name = map[int32]string{
+		0: "CustomValueEnum_NORMAL",
+		1: "CustomValueEnum_CUSTOM",
+		2: "CustomValueEnum_OVERRIDE",
+	}
+	CustomValueEnum_value = map[string]int32{
+		"CustomValueEnum_NORMAL":   0,
+		"CustomValueEnum_CUSTOM":   1,
+		"CustomValueEnum_OVERRIDE": 2,
+	}
+)
+
+func (x CustomValueEnum) Enum() *CustomValueEnum {
+	p := new(CustomValueEnum)
+	*p = x
+	return p
+}
+
+func (x CustomValueEnum) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CustomValueEnum) Descriptor() protoreflect.EnumDescriptor {
+	return file_test_proto_enumTypes[3].Descriptor()
+}
+
+func (CustomValueEnum) Type() protoreflect.EnumType {
+	return &file_test_proto_enumTypes[3]
+}
+
+func (x CustomValueEnum) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *CustomValueEnum) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = CustomValueEnum(num)
+	return nil
+}
+
+// Deprecated: Use CustomValueEnum.Descriptor instead.
+func (CustomValueEnum) EnumDescriptor() ([]byte, []int) {
+	return file_test_proto_rawDescGZIP(), []int{3}
+}
+
 type SampleMessage1_InnerEnum int32
 
 const (
@@ -265,11 +324,11 @@ func (x SampleMessage1_InnerEnum) String() string {
 }
 
 func (SampleMessage1_InnerEnum) Descriptor() protoreflect.EnumDescriptor {
-	return file_test_proto_enumTypes[3].Descriptor()
+	return file_test_proto_enumTypes[4].Descriptor()
 }
 
 func (SampleMessage1_InnerEnum) Type() protoreflect.EnumType {
-	return &file_test_proto_enumTypes[3]
+	return &file_test_proto_enumTypes[4]
 }
 
 func (x SampleMessage1_InnerEnum) Number() protoreflect.EnumNumber {
@@ -321,11 +380,11 @@ func (x SampleMessage2_InnerEnum) String() string {
 }
 
 func (SampleMessage2_InnerEnum) Descriptor() protoreflect.EnumDescriptor {
-	return file_test_proto_enumTypes[4].Descriptor()
+	return file_test_proto_enumTypes[5].Descriptor()
 }
 
 func (SampleMessage2_InnerEnum) Type() protoreflect.EnumType {
-	return &file_test_proto_enumTypes[4]
+	return &file_test_proto_enumTypes[5]
 }
 
 func (x SampleMessage2_InnerEnum) Number() protoreflect.EnumNumber {
@@ -456,7 +515,12 @@ const file_test_proto_rawDesc = "" +
 	"\x15OP_CODE_UNHOME_PREFIX\x10\xad\x02\x12 \n" +
 	"\x1bOP_CODE_LIST_HOMED_PREFIXES\x10\xae\x02\x12\x1a\n" +
 	"\x15OP_CODE_SESSION_SETUP\x10\x90\x03\x12\x1e\n" +
-	"\x19OP_CODE_SESSION_TERMINATE\x10\x91\x03\x1a&\xa0\xe3,\x01\xaa\xe3,\aOpCode_\xb0\xe3,\x01\xd2\xe3,\bOP_CODE_\xda\xe3,\x03OC_B8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
+	"\x19OP_CODE_SESSION_TERMINATE\x10\x91\x03\x1a&\xa0\xe3,\x01\xaa\xe3,\aOpCode_\xb0\xe3,\x01\xd2\xe3,\bOP_CODE_\xda\xe3,\x03OC_*\xb9\x01\n" +
+	"\x0fCustomValueEnum\x12\x1a\n" +
+	"\x16CustomValueEnum_NORMAL\x10\x00\x12,\n" +
+	"\x16CustomValueEnum_CUSTOM\x10\x01\x1a\x10\xf2\xe3,\fcustom_value\x12,\n" +
+	"\x18CustomValueEnum_OVERRIDE\x10\x02\x1a\x0e\xf2\xe3,\n" +
+	"overridden\x1a.\xa0\xe3,\x01\xaa\xe3,\x10CustomValueEnum_\xda\xe3,\aPREFIX_\xe2\xe3,\a_SUFFIXB8Z6github.com/daotl/protoc-gen-go-string-consts/testproto"
 
 var (
 	file_test_proto_rawDescOnce sync.Once
@@ -470,16 +534,17 @@ func file_test_proto_rawDescGZIP() []byte {
 	return file_test_proto_rawDescData
 }
 
-var file_test_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_test_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
 var file_test_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_test_proto_goTypes = []any{
 	(FOO)(0),                      // 0: tests.FOO
 	(BAR)(0),                      // 1: tests.BAR
 	(OpCode)(0),                   // 2: tests.OpCode
-	(SampleMessage1_InnerEnum)(0), // 3: tests.SampleMessage1.InnerEnum
-	(SampleMessage2_InnerEnum)(0), // 4: tests.SampleMessage2.InnerEnum
-	(*SampleMessage1)(nil),        // 5: tests.SampleMessage1
-	(*SampleMessage2)(nil),        // 6: tests.SampleMessage2
+	(CustomValueEnum)(0),          // 3: tests.CustomValueEnum
+	(SampleMessage1_InnerEnum)(0), // 4: tests.SampleMessage1.InnerEnum
+	(SampleMessage2_InnerEnum)(0), // 5: tests.SampleMessage2.InnerEnum
+	(*SampleMessage1)(nil),        // 6: tests.SampleMessage1
+	(*SampleMessage2)(nil),        // 7: tests.SampleMessage2
 }
 var file_test_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -499,7 +564,7 @@ func file_test_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_test_proto_rawDesc), len(file_test_proto_rawDesc)),
-			NumEnums:      5,
+			NumEnums:      6,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,

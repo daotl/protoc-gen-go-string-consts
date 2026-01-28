@@ -94,6 +94,14 @@ var file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes = []protoimpl.Exte
 		Tag:           "bytes,91708,opt,name=value_suffix",
 		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
 	},
+	{
+		ExtendedType:  (*descriptorpb.EnumValueOptions)(nil),
+		ExtensionType: (*string)(nil),
+		Field:         91710,
+		Name:          "daotl.gen_go_string_consts.value",
+		Tag:           "bytes,91710,opt,name=value",
+		Filename:      "daotl/protoc-gen-go-string-consts/ext.proto",
+	},
 }
 
 // Extension fields to descriptorpb.EnumOptions.
@@ -140,6 +148,15 @@ var (
 	E_ValueSuffix = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[8]
 )
 
+// Extension fields to descriptorpb.EnumValueOptions.
+var (
+	// Use a fixed value for this enum value's Go string constant.
+	// If set, ignores `value_prefix` and `value_suffix` from EnumOptions.
+	//
+	// optional string value = 91710;
+	E_Value = &file_daotl_protoc_gen_go_string_consts_ext_proto_extTypes[9]
+)
+
 var File_daotl_protoc_gen_go_string_consts_ext_proto protoreflect.FileDescriptor
 
 const file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc = "" +
@@ -155,27 +172,30 @@ const file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc = "" +
 	"nameSuffix:L\n" +
 	"\x12strip_value_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xba\xcc\x05 \x01(\tR\x10stripValuePrefix:A\n" +
 	"\fvalue_prefix\x12\x1c.google.protobuf.EnumOptions\x18\xbb\xcc\x05 \x01(\tR\vvaluePrefix:A\n" +
-	"\fvalue_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xbc\xcc\x05 \x01(\tR\vvalueSuffixB\xdb\x01\n" +
+	"\fvalue_suffix\x12\x1c.google.protobuf.EnumOptions\x18\xbc\xcc\x05 \x01(\tR\vvalueSuffix:9\n" +
+	"\x05value\x12!.google.protobuf.EnumValueOptions\x18\xbe\xcc\x05 \x01(\tR\x05valueB\xdb\x01\n" +
 	"\x1ecom.daotl.gen_go_string_constsB\bExtProtoP\x01Z2github.com/daotl/protoc-gen-go-string-consts/pbgen\xa2\x02\x03DGX\xaa\x02\x17Daotl.GenGoStringConsts\xca\x02\x17Daotl\\GenGoStringConsts\xe2\x02#Daotl\\GenGoStringConsts\\GPBMetadata\xea\x02\x18Daotl::GenGoStringConstsb\x06proto3"
 
 var file_daotl_protoc_gen_go_string_consts_ext_proto_goTypes = []any{
-	(*descriptorpb.EnumOptions)(nil), // 0: google.protobuf.EnumOptions
+	(*descriptorpb.EnumOptions)(nil),      // 0: google.protobuf.EnumOptions
+	(*descriptorpb.EnumValueOptions)(nil), // 1: google.protobuf.EnumValueOptions
 }
 var file_daotl_protoc_gen_go_string_consts_ext_proto_depIdxs = []int32{
-	0, // 0: daotl.gen_go_string_consts.enabled:extendee -> google.protobuf.EnumOptions
-	0, // 1: daotl.gen_go_string_consts.strip_name_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 2: daotl.gen_go_string_consts.name_pascal_case:extendee -> google.protobuf.EnumOptions
-	0, // 3: daotl.gen_go_string_consts.name_caps_case:extendee -> google.protobuf.EnumOptions
-	0, // 4: daotl.gen_go_string_consts.name_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 5: daotl.gen_go_string_consts.name_suffix:extendee -> google.protobuf.EnumOptions
-	0, // 6: daotl.gen_go_string_consts.strip_value_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 7: daotl.gen_go_string_consts.value_prefix:extendee -> google.protobuf.EnumOptions
-	0, // 8: daotl.gen_go_string_consts.value_suffix:extendee -> google.protobuf.EnumOptions
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	0, // [0:9] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: daotl.gen_go_string_consts.enabled:extendee -> google.protobuf.EnumOptions
+	0,  // 1: daotl.gen_go_string_consts.strip_name_prefix:extendee -> google.protobuf.EnumOptions
+	0,  // 2: daotl.gen_go_string_consts.name_pascal_case:extendee -> google.protobuf.EnumOptions
+	0,  // 3: daotl.gen_go_string_consts.name_caps_case:extendee -> google.protobuf.EnumOptions
+	0,  // 4: daotl.gen_go_string_consts.name_prefix:extendee -> google.protobuf.EnumOptions
+	0,  // 5: daotl.gen_go_string_consts.name_suffix:extendee -> google.protobuf.EnumOptions
+	0,  // 6: daotl.gen_go_string_consts.strip_value_prefix:extendee -> google.protobuf.EnumOptions
+	0,  // 7: daotl.gen_go_string_consts.value_prefix:extendee -> google.protobuf.EnumOptions
+	0,  // 8: daotl.gen_go_string_consts.value_suffix:extendee -> google.protobuf.EnumOptions
+	1,  // 9: daotl.gen_go_string_consts.value:extendee -> google.protobuf.EnumValueOptions
+	10, // [10:10] is the sub-list for method output_type
+	10, // [10:10] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	0,  // [0:10] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_daotl_protoc_gen_go_string_consts_ext_proto_init() }
@@ -190,7 +210,7 @@ func file_daotl_protoc_gen_go_string_consts_ext_proto_init() {
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc), len(file_daotl_protoc_gen_go_string_consts_ext_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   0,
-			NumExtensions: 9,
+			NumExtensions: 10,
 			NumServices:   0,
 		},
 		GoTypes:           file_daotl_protoc_gen_go_string_consts_ext_proto_goTypes,

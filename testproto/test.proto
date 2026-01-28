@@ -71,3 +71,14 @@ enum OpCode {
   OP_CODE_SESSION_SETUP = 400;
   OP_CODE_SESSION_TERMINATE = 401;
 }
+
+enum CustomValueEnum {
+  option (daotl.gen_go_string_consts.enabled) = true;
+  option (daotl.gen_go_string_consts.strip_name_prefix) = "CustomValueEnum_";
+  option (daotl.gen_go_string_consts.value_prefix) = "PREFIX_";
+  option (daotl.gen_go_string_consts.value_suffix) = "_SUFFIX";
+
+  CustomValueEnum_NORMAL = 0;
+  CustomValueEnum_CUSTOM = 1 [(daotl.gen_go_string_consts.value) = "custom_value"];
+  CustomValueEnum_OVERRIDE = 2 [(daotl.gen_go_string_consts.value) = "overridden"];
+}
